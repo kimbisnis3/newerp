@@ -10,7 +10,7 @@
       </div>
     </div>
     <ul class="sidebar-menu">
-      <li class="header">FRONT END WEBSITE</li>
+      <li class="header">MENU</li>
       <li class="treeview berita">
         <a href="<?php echo base_url(); ?>berita">
           <i class="fa fa-newspaper-o"></i> <span>Berita</span>

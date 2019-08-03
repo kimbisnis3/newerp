@@ -18,7 +18,8 @@
 	var php_session_id = '<?php echo $this->session->userdata("id") ?>';
 
 	$(document).ready(function() {
-		// getAkses()
+	    activemenu();
+	    select2();
 	})
 
 	$(function() {
@@ -48,6 +49,23 @@
 	        },
 	    }, );
 	};
+
+	function getSelect(d, u) {
+	    $.ajax({
+	        url: `${apiurl}/${u}`,
+	        type: "POST",
+	        dataType: "JSON",
+	        success: function(data) {
+	            for (var i = 0; i < data.length; i++) {
+	                $("#" + d).append('<option value=' + data[i].id + '>' + data[i].judul + '</option>');
+	            }
+	        },
+	        error: function(jqXHR, textStatus, errorThrown) {
+	            alert('Error on process');
+	        }
+	    });
+
+	}
 	
 	function activemenu() {
 		$("."+grupmenu).addClass("active");
@@ -64,12 +82,16 @@
 	        },
 	        dataType: "JSON",
 	        success: function(data) {
-	        	
+
 	        },
 	        error: function(jqXHR, textStatus, errorThrown) {
 	            console.log('Error Get Akses');
 	        }
 	    });
+	}
+
+	function allowAkses() {
+		
 	}
 
 </script>

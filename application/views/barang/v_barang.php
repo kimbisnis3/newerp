@@ -33,11 +33,14 @@
                         </div>
                         <div class="form-group">
                           <label>Select</label>
-                          <select class="form-control select2" id="selectGet" name="select">
-                            <option>-</option>
-                            <option>-</option>
-                            <option value="233">233</option>
-                            <option>-</option>
+                          <select class="form-control select2" id="selectsatu" name="select">
+                            <option>- Pilih Data -</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Select Dua</label>
+                          <select class="form-control select2" id="selectdua" name="selectz">
+                            <option>- Pilih Data -</option>
                           </select>
                         </div>
                         <div class="form-group">
@@ -156,9 +159,9 @@
   var table ;
 
   $(document).ready(function() {
-      getSelect();
-      activemenu();
-      select2();
+      getSelect('selectsatu','getselects');
+      getSelect('selectdua','getselects');
+
       table = $('#table').DataTable({
           "processing": true,
           "ajax": {
@@ -219,8 +222,9 @@
               $('[name="id"]').val(data.id);
               $('[name="judul"]').val(data.judul);
               $('[name="ket"]').val(data.ket);
-              $('#selectGet').val(data.id);
-              $('#selectGet').trigger('change');
+              $('#selectsatu').val(data.id);
+              $('#selectdua').val(data.id);
+              $('.select2').trigger('change');
               $('#modal-data').modal('show');
               $('.modal-title').text('Edit Data');
           },
@@ -319,22 +323,22 @@
       });
   }
 
-  function getSelect() {
-      $.ajax({
-          url: `${apiurl}/getselects`,
-          type: "POST",
-          dataType: "JSON",
-          success: function(data) {
-              for (var i = 0; i < data.length; i++) {
-                  $("#selectGet").append('<option value=' + data[i].id + '>' + data[i].judul + '</option>');
-              }
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-              alert('Error on process');
-          }
-      });
+  // function getSelect(d, u) {
+  //     $.ajax({
+  //         url: `${apiurl}/${u}`,
+  //         type: "POST",
+  //         dataType: "JSON",
+  //         success: function(data) {
+  //             for (var i = 0; i < data.length; i++) {
+  //                 $("#"+d).append('<option value=' + data[i].id + '>' + data[i].judul + '</option>');
+  //             }
+  //         },
+  //         error: function(jqXHR, textStatus, errorThrown) {
+  //             alert('Error on process');
+  //         }
+  //     });
 
-  }
+  // }
 
   </script>
 </body>
