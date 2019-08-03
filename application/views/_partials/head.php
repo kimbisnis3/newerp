@@ -17,5 +17,9 @@
             background-color: #008B8B !important;
             color: #ffffff !important;
         }
+        .select2-container {
+            width: 100% !important;
+            padding: 0;
+        }
     </style>
 </head>

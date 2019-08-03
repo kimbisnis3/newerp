@@ -52,6 +52,12 @@ class Barang extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function getselects()
+    {
+        $data   = $this->db->get($this->table)->result();
+        echo json_encode($data);
+    }
+
     function updatedata(){
         $d['useru']     = $this->session->userdata('nama_user');
         $d['dateu']     = 'now()';

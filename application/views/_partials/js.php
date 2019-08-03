@@ -17,6 +17,10 @@
 	var php_session_nama = '<?php echo $this->session->userdata("nama") ?>';
 	var php_session_id = '<?php echo $this->session->userdata("id") ?>';
 
+	$(document).ready(function() {
+		// getAkses()
+	})
+
 	$(function() {
 	    if ($('#artikelx').length) {
 	        CKEDITOR.replace('artikelx')
@@ -60,7 +64,7 @@
 	        },
 	        dataType: "JSON",
 	        success: function(data) {
-
+	        	
 	        },
 	        error: function(jqXHR, textStatus, errorThrown) {
 	            console.log('Error Get Akses');
